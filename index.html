@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peach State Drive Rentals | Drive Georgia in Style</title>
     
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -185,7 +186,7 @@
         }
 
         .price {
-            font-size: 0.9rem;
+            font-size: 1.0rem;
             font-weight: 700;
             color: var(--primary-navy);
         }
@@ -256,11 +257,31 @@
 
         footer a { color: var(--accent-peach); }
 
-        /* --- RESPONSIVE --- */
+        /* --- MOBILE RESPONSIVE UPDATES --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            nav { display: none; } /* Simplified for this demo */
+            
+            /* Show Toggle Button */
             .menu-toggle { display: block; }
+            
+            /* Style Nav for Mobile Dropdown */
+            nav {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-navy);
+                padding: 20px 0;
+                text-align: center;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            nav.active { display: block; }
+
+            nav ul { flex-direction: column; gap: 25px; }
+            nav a { font-size: 1.2rem; display: block; }
+
             .about-grid { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
         }
@@ -272,7 +293,8 @@
         <div class="logo">
             <i class="fas fa-car-side"></i> Peach State <span>Drive Rentals</span>
         </div>
-        <nav>
+        
+        <nav id="navbar">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#fleet">Fleet</a></li>
@@ -281,6 +303,7 @@
                 <li><a href="#booking" class="btn" style="padding: 8px 16px;">Book Now</a></li>
             </ul>
         </nav>
+        
         <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     </header>
 
@@ -301,7 +324,7 @@
                     <h3>Toyota Corolla</h3>
                     <p class="car-desc">Automatic, 5 people, 3 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$60/day, $400/week, $1200/month</span>
+                        <span class="price">$60/day,$400/week,$1200/month</span>
                         <button class="btn-outline book-trigger" data-car="Toyota Corolla">Book Now</button>
                     </div>
                 </div>
@@ -313,7 +336,7 @@
                     <h3>Volkswagen Jetta</h3>
                     <p class="car-desc">Automatic, 5 people, 3 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$70/day, $450/week, $1300/month</span>
+                        <span class="price">$70/day,$450/week,$1300/month</span>
                         <button class="btn-outline book-trigger" data-car="Volkswagen Jetta">Book Now</button>
                     </div>
                 </div>
@@ -325,7 +348,7 @@
                     <h3>Audi A5 Sport Back</h3>
                     <p class="car-desc">Automatic, 5 people, 3 bags</p>
                     <div class="car-footer">
-                        <span class="price">$155/day, $1000/week, $3200/month</span>
+                        <span class="price">$155/day,$1000/week,$3200/month</span>
                         <button class="btn-outline book-trigger" data-car="Audi A5 Sport Back">Book Now</button>
                     </div>
                 </div>
@@ -337,7 +360,7 @@
                     <h3>Toyota Prius</h3>
                     <p class="car-desc">Automatic, 5 people, 3 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$55/day, $330/week, $1200/month</span>
+                        <span class="price">$55/day,$330/week,$1200/month</span>
                         <button class="btn-outline book-trigger" data-car="Toyota Prius">Book Now</button>
                     </div>
                 </div>
@@ -349,7 +372,7 @@
                     <h3>BMW 228I Grancoupe</h3>
                     <p class="car-desc">Automatic, 5 people, 2 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$150/day, $980/week, $3000/month</span>
+                        <span class="price">$150/day,$980/week,$3000/month</span>
                         <button class="btn-outline book-trigger" data-car="BMW 228I Grancoupe">Book Now</button>
                     </div>
                 </div>
@@ -362,7 +385,7 @@
                     <h3>Chevrolet Malibu</h3>
                     <p class="car-desc">Automatic, 4 people, 4 bags</p>
                     <div class="car-footer">
-                        <span class="price">$60/day, 420/week, 1300/month</span>
+                        <span class="price">$60/day,420/week,1300/month</span>
                         <button class="btn-outline book-trigger" data-car="Chevrolet Malibu">Book Now</button>
                     </div>
                 </div>
@@ -375,7 +398,7 @@
                     <h3>Jeep Wrangler</h3>
                     <p class="car-desc">Automatic, 4 people, 3 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$100/day, $800/week, $2900/month</span>
+                        <span class="price">$100/day,$800/week,$2900/month</span>
                         <button class="btn-outline book-trigger" data-car="Jeep Wrangler">Book Now</button>
                     </div>
                 </div>
@@ -388,7 +411,7 @@
                     <h3>Ford F150</h3>
                     <p class="car-desc">Automatic, 5 people, 4 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$120/day, $780/week, $2600/month</span>
+                        <span class="price">$120/day.$780/week.$2600/month</span>
                         <button class="btn-outline book-trigger" data-car="Ford F150">Book Now</button>
                     </div>
                 </div>
@@ -401,7 +424,7 @@
                     <h3>Chevrolet Equinox</h3>
                     <p class="car-desc">Automatic, 5 people, 5 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$75/day, $480/week, $1700/month</span>
+                        <span class="price">$75/day,$480/week,$1700/month</span>
                         <button class="btn-outline book-trigger" data-car="Chevrolet Equinox">Book Now</button>
                     </div>
                 </div>
@@ -414,7 +437,7 @@
                     <h3>Ford Transit Wagon</h3>
                     <p class="car-desc">Automatic, 15 people, 2 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$190/day, $1250/week, $4000/month</span>
+                        <span class="price">$190/day.$1250/week,$4000/month</span>
                         <button class="btn-outline book-trigger" data-car="Ford Transit Wagon">Book Now</button>
                     </div>
                 </div>
@@ -427,7 +450,7 @@
                     <h3>Mercedes Benz Sprinter</h3>
                     <p class="car-desc">Automatic, 12 people, 7 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$260/day, $1650/week, $5800/month</span>
+                        <span class="price">$260/day.$1650/week,$5800/month</span>
                         <button class="btn-outline book-trigger" data-car="Mercedes Benz Sprinter">Book Now</button>
                     </div>
                 </div>
@@ -440,7 +463,7 @@
                     <h3>BMW 4 Series</h3>
                     <p class="car-desc">Automatic, 4 people, 2 bags.</p>
                     <div class="car-footer">
-                        <span class="price">$180/day, $1200/week, $4000/month</span>
+                        <span class="price">$180/day.$1200/week,$4000/month</span>
                         <button class="btn-outline book-trigger" data-car="BMW 4 Series">Book Now</button>
                     </div>
                 </div>
@@ -486,18 +509,18 @@
                         <label>Select Car</label>
                         <select id="carSelect" required>
                             <option value="" disabled selected>Choose a vehicle...</option>
-                            <option value="Toyota Corolla">Toyota Corolla ($60/day)</option>
-                            <option value="Volkswagen Jetta">Volkswagen Jetta ($70/day)</option>
-                            <option value="Audi A5 Sport Back">Audi A5 Sport Back ($155/day)</option>
-                            <option value="Toyota Prius">Toyota Prius ($55/day)</option>
-                            <option value="BMW 228I Grancoupe">BMW 228I Grancoupe ($150/day)</option>
-                            <option value="Chevrolet Malibu">Chevrolet Malibu ($60/day)</option>
-                            <option value="Jeep Wrangler">Jeep Wrangler ($100/day)</option>
-                            <option value="Ford F150">Ford F150 ($120/day)</option>
-                            <option value="Chevrolet Equinox">Chevrolet Equinox ($75/day)</option>
-                            <option value="Ford Transit Wagon">Ford Transit Wagon ($190/day)</option>
-                            <option value="Mercedes Benz Sprinter">Mercedes Benz Sprinter ($260/day)</option>
-                            <option value="BMW 4 Series">BMW 4 Series ($180/day)</option>
+                            <option value="Toyota Corolla">Toyota Corolla ($60/day, $400/week, $1200/month)</option>
+                            <option value="Volkswagen Jetta">Volkswagen Jetta ($70/day, $450/week, $1300/month)</option>
+                            <option value="Audi A5 Sport Back">Audi A5 Sport Back ($155/day, $1000/week, $3200/month)</option>
+                            <option value="Toyota Prius">Toyota Prius ($55/day, $330/week, $1200/month)</option>
+                            <option value="BMW 228I Grancoupe">BMW 228I Grancoupe ($150/day, $980/week, $3000/month)</option>
+                            <option value="Chevrolet Malibu">Chevrolet Malibu ($60/day, $420/week, $1300/month)</option>
+                            <option value="Jeep Wrangler">Jeep Wrangler ($100/day, $800/week, $2900/month)</option>
+                            <option value="Ford F150">Ford F150 ($120/day, $780/week, $2600/month)</option>
+                            <option value="Chevrolet Equinox">Chevrolet Equinox ($75/day, $480/week, $1700/month)</option>
+                            <option value="Ford Transit Wagon">Ford Transit Wagon ($190/day, $1250/week, $4000/month)</option>
+                            <option value="Mercedes Benz Sprinter">Mercedes Benz Sprinter ($260/day, $1650/week, $5800/month)</option>
+                            <option value="BMW 4 Series">BMW 4 Series ($180/day, $1200/week, $4000/month)</option>
                         </select>
                     </div>
 
@@ -595,6 +618,21 @@
         document.getElementById('rentalForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you! Your booking request for the ' + carSelect.value + ' has been received. We will contact you shortly.');
+        });
+
+        /* --- MOBILE MENU SCRIPT --- */
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('nav a');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
         });
     </script>
 </body>
