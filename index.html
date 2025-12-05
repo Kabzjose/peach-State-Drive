@@ -235,9 +235,8 @@
             font-family: var(--font-body);
         }
 
-        /* Helper for file input text */
         .form-group input[type="file"] {
-            padding: 7px; /* Adjust padding for file input */
+            padding: 7px; 
         }
 
         .form-group input:focus, .form-group select:focus {
@@ -265,11 +264,7 @@
         /* --- MOBILE RESPONSIVE UPDATES --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            
-            /* Show Toggle Button */
             .menu-toggle { display: block; }
-            
-            /* Style Nav for Mobile Dropdown */
             nav {
                 display: none; 
                 position: absolute;
@@ -281,12 +276,9 @@
                 text-align: center;
                 border-top: 1px solid rgba(255,255,255,0.1);
             }
-
             nav.active { display: block; }
-
             nav ul { flex-direction: column; gap: 25px; }
             nav a { font-size: 1.2rem; display: block; }
-
             .about-grid { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
         }
@@ -530,6 +522,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Rental Rate Plan</label>
+                        <select id="ratePlan" required>
+                            <option value="" disabled selected>Select plan...</option>
+                            <option value="Daily">Daily Rate</option>
+                            <option value="Weekly">Weekly Bundle</option>
+                            <option value="Monthly">Monthly Bundle</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>Pickup Location</label>
                         <select id="pickupLocation" required>
                             <option value="" disabled selected>Select city...</option>
@@ -570,13 +572,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Security Deposit Payment</label>
-                        <select id="depositPayment" required>
-                            <option value="" disabled selected>Select payment method...</option>
-                            <option value="Pay Now">Pay Deposit Now (Online)</option>
-                            <option value="Pay at Counter">Pay at Pickup</option>
-                        </select>
-                    </div>
+    <label>Payment Method</label>
+    <select id="depositPayment" required>
+        <option value="Pay at Counter" selected>Pay at Pickup</option>
+        <option value="" disabled>Pay Online (Available Soon)</option>
+    </select>
+    <small style="color: #FF7F50; font-size: 0.85rem; display:block; margin-top:5px; font-weight: 600;">
+        <i class="fas fa-info-circle"></i> Note: Online payment options will be available soon.
+    </small>
+</div>
 
                     <div class="form-group full-width">
                         <label>Special Requests</label>
@@ -638,7 +642,9 @@
         // Simple Form Alert
         document.getElementById('rentalForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! Your booking request for the ' + carSelect.value + ' has been received. We will contact you shortly.');
+            // Get the rate plan value
+            const ratePlan = document.getElementById('ratePlan').value;
+            alert('Thank you! Your ' + ratePlan + ' booking request for the ' + carSelect.value + ' has been received. We will contact you shortly.');
         });
 
         /* --- MOBILE MENU SCRIPT --- */
