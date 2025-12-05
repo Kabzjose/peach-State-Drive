@@ -235,6 +235,11 @@
             font-family: var(--font-body);
         }
 
+        /* Helper for file input text */
+        .form-group input[type="file"] {
+            padding: 7px; /* Adjust padding for file input */
+        }
+
         .form-group input:focus, .form-group select:focus {
             border-color: var(--accent-peach);
             outline: none;
@@ -558,6 +563,21 @@
                         <input type="date" required>
                     </div>
 
+                    <div class="form-group">
+                        <label>Upload ID & Driver's License</label>
+                        <input type="file" id="idUpload" multiple accept="image/*,.pdf" required>
+                        <small style="color:#666; font-size:0.8rem; display:block; margin-top:5px;">Please upload clear photos of your ID and License.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Security Deposit Payment</label>
+                        <select id="depositPayment" required>
+                            <option value="" disabled selected>Select payment method...</option>
+                            <option value="Pay Now">Pay Deposit Now (Online)</option>
+                            <option value="Pay at Counter">Pay at Pickup</option>
+                        </select>
+                    </div>
+
                     <div class="form-group full-width">
                         <label>Special Requests</label>
                         <textarea rows="3" placeholder="Need a car seat? Specific airport terminal?"></textarea>
@@ -574,6 +594,7 @@
             <div class="contact-item"><i class="fas fa-envelope"></i> peachstatedrive01@gmail.com</div>
             <div class="contact-item"><i class="fas fa-phone"></i> (555) 123-4567</div>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Atlanta, GA</div>
+            <div class="contact-item"><i class="fas fa-mail-bulk"></i> P.O. Box 4400, Atlanta, GA</div>
         </div>
        
     </section>
